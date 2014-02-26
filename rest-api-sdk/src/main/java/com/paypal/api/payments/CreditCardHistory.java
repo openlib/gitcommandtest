@@ -1,0 +1,101 @@
+package com.paypal.api.payments;
+
+import com.paypal.core.rest.JSONFormatter;
+import com.paypal.api.payments.CreditCard;
+import java.util.List;
+import java.util.Map;
+import com.paypal.core.rest.PayPalRESTException;
+import com.paypal.core.rest.PayPalResource;
+import com.paypal.core.rest.HttpMethod;
+import com.paypal.core.rest.RESTUtil;
+import com.paypal.core.rest.QueryParameters;
+import com.paypal.core.rest.APIContext;
+import java.io.File;
+import java.io.InputStream;
+import java.util.Properties;
+
+public class CreditCardHistory  {
+
+	/**
+	 * A list of credit card resources
+	 */
+	private List<CreditCard> creditCards;
+	
+	/**
+	 * Number of items returned in each range of results. Note that the last results range could have fewer items than the requested number of items.
+	 */
+	private int count;
+	
+	/**
+	 * Identifier of the next element to get the next range of results.
+	 */
+	private String nextId;
+	
+	/**
+	 * Default Constructor
+	 */
+	public CreditCardHistory() {
+	}
+
+
+	/**
+	 * Setter for creditCards
+	 */
+	public CreditCardHistory setCreditCards(List<CreditCard> creditCards) {
+		this.creditCards = creditCards;
+		return this;
+	}
+	
+	/**
+	 * Getter for creditCards
+	 */
+	public List<CreditCard> getCreditCards() {
+		return this.creditCards;
+	}
+
+
+	/**
+	 * Setter for count
+	 */
+	public CreditCardHistory setCount(int count) {
+		this.count = count;
+		return this;
+	}
+	
+	/**
+	 * Getter for count
+	 */
+	public int getCount() {
+		return this.count;
+	}
+
+
+	/**
+	 * Setter for nextId
+	 */
+	public CreditCardHistory setNextId(String nextId) {
+		this.nextId = nextId;
+		return this;
+	}
+	
+	/**
+	 * Getter for nextId
+	 */
+	public String getNextId() {
+		return this.nextId;
+	}
+
+	/**
+	 * Returns a JSON string corresponding to object state
+	 * 
+	 * @return JSON representation
+	 */
+	public String toJSON() {
+		return JSONFormatter.toJSON(this);
+	}
+
+	@Override
+	public String toString() {
+		return toJSON();
+	}
+}
